@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Customer } from './my-bar-chart/Customer';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -1,10 +1,316 @@
-<div>
-  <div style="display: block">
-    <canvas baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [legend]="barChartLegend"
-          [chartType]="barChartType"></canvas>
+<div class="container">
+
+      <div class="row">
+
+
+      <aside class="col-4">
+       
+
+        <form novalidate (ngSubmit)="save(signupForm)" #signupForm="ngForm">
+        <div *ngIf="customer.sendCatalog">
+            </div>
+
+
+ <!-- for strat date -->
+<div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label"
+                       for="StartDate">Start Date</label>
+                       <div class="col-md-8">
+                          <input class="form-control"
+                                 id="Start Date"
+                                 type="date"
+                                 placeholder="StartDate (required)"
+                                 required
+                                 maxlength="50"
+                                 [(ngModel)]="customer.StartDate"
+                                 name="StartDate"
+                                 #lastNameVar="ngModel" />
+                                 </div>
+                                 
+                       </div>
+
+<!-- end date -->
+<div class="form-group row mb-2">
+    <label class="col-md-2 col-form-label"
+           for="EndDate">End Date</label>
+           <div class="col-md-8">
+              <input class="form-control"
+                     id="End Date"
+                     type="date"
+                     placeholder="EndDate (required)"
+                     required
+                     maxlength="50"
+                     [(ngModel)]="customer.EndDate"
+                     name="EndDate"
+                     #lastNameVar="ngModel" />
+                     </div>
+                     
+           </div>
+  <!-- for kpi -->
+ <div class="form-group row mb-3">
+
+
+
+                <label class="col-md-4 col-form-label pt-0">KPI TYPE</label>
+                <div class="col-md-12">
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                          <input class="form-check-input"
+                                id="addressType1Id"
+                                type="radio"
+                                value="home1"
+                                [(ngModel)]="customer.addressType"
+                                name="addressType"> CPU
+                        </label>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                              <input class="form-check-input"
+                                    id="work"
+                                    type="radio"
+                                    value="home2"
+                                    [(ngModel)]="customer.addressType"
+                                    name="addressType"> Memory
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                              <label class="form-check-label">
+                                <input class="form-check-input"
+                                      id="addressType1Id"
+                                      type="radio"
+                                      value="home3"
+                                      [(ngModel)]="customer.addressType"
+                                      name="addressType"> Disk
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <label class="form-check-label">
+                                  <input class="form-check-input"
+                                        id="addressType1Id"
+                                        type="radio"
+                                        value="home4"
+                                        [(ngModel)]="customer.addressType"
+                                        name="addressType"> DHCP
+                                </label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input"
+                                          id="addressType1Id"
+                                          type="radio"
+                                          value="home5"
+                                          [(ngModel)]="customer.addressType"
+                                          name="addressType"> DNS
+                                  </label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input"
+                                            id="addressType1Id"
+                                            type="radio"
+                                            value="home6"
+                                            [(ngModel)]="customer.addressType"
+                                            name="addressType"> Network/Interuser
+                                    </label>
+                                  </div>
+                                  
+
+                                 
+
+                    </div>                   
+                        </div>
+ </div>
+            <!-- for warning -->
+     <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label"
+                       for="lastNameId">Warning</label>
+                       <div class="col-md-8">
+                          <input class="form-control"
+                                 id="lastNameId"
+                                 type="number"
+                                 placeholder="warning"
+                                 required
+                                 maxlength="50"
+                                 [(ngModel)]="customer.lastName"
+                                 name="warning"
+                                 #lastNameVar="ngModel" />
+                                 </div>
+
+                                 
+                                 
+                       </div> 
+                       <!-- for Critical     -->
+                       <div class="form-group row mb-2">
+                          <label class="col-md-2 col-form-label"
+                                 for="critical">critical</label>
+                                 <div class="col-md-8">
+                                    <input class="form-control"
+                                           id="critical"
+                                           type="number"
+                                           placeholder="critical"
+                                           required
+                                           maxlength="50"
+                                           [(ngModel)]="customer.critical"
+                                           name="critical"
+                                           #lastNameVar="ngModel" />
+                                           </div>
+          
+                                           
+                                           
+                                 </div> 
+                       <!-- for successvie difference -->
+                       <div class="form-group row mb-2">
+                          <label class="col-md-2 col-form-label"
+                                 for="successvie">successvie</label>
+                                 <div class="col-md-8">
+                                    <input class="form-control"
+                                           id="successvie"
+                                           type="number"
+                                           placeholder="successvie"
+                                           required
+                                           maxlength="50"
+                                           [(ngModel)]="customer.successvie"
+                                           name="successvie"
+                                           #lastNameVar="ngModel" />
+                                           </div>
+          
+                                           
+                                           
+                                 </div> 
+                       <!-- for CL-window -->
+                       <div class="form-group row mb-2">
+                          <label class="col-md-2 col-form-label"
+                                 for="CL-window">CL-window</label>
+                                 <div class="col-md-8">
+                                    <input class="form-control"
+                                           id="CL-window"
+                                           type="number"
+                                           placeholder="CL-window"
+                                           required
+                                           maxlength="50"
+                                           [(ngModel)]="customer.CL-window"
+                                           name="CL-window"
+                                           #lastNameVar="ngModel" />
+                                           </div>
+          
+                                           
+                                           
+                                 </div> 
+                       <!-- for CL1-window -->
+                       <div class="form-group row mb-2">
+                          <label class="col-md-2 col-form-label"
+                                 for="CL1-window">CL1-window</label>
+                                 <div class="col-md-8">
+                                    <input class="form-control"
+                                           id="CL1-window"
+                                           type="number"
+                                           placeholder="CL1-window"
+                                           required
+                                           
+                                           [(ngModel)]="customer.CL1-window"
+                                           name="CL1-window"
+                                           #lastNameVar="ngModel" />
+                                           </div>
+          
+                                           
+                                           
+                                 </div> 
+                       
+<!-- SUBMIT -->
+<div class="form-group row mb-2">
+    <div class="offset-md-2 col-md-4">
+      <button class="btn btn-primary mr-3"
+              type="submit"
+              style="width:80px"
+      >
+        Submit
+      </button>
+    </div>
   </div>
+
+                       
+</form>                   
+</aside>
+
+             <section class="col-8">
+            <div class="col-12" *ngIf="ID.length>0">
+                <canvas baseChart
+                
+                width="2px"
+                   [datasets]="barChartData" 
+                      [labels]="ID"
+                      [options]="barChartOptions"
+                      [legend]="barChartLegend"
+                      [chartType]="barChartType"></canvas>
+            </div>
+            <div class="col-12">
+                <table id="t01">
+                    <caption>Delivery slots:</caption>
+                    <tr>
+                      <td></td>
+                      <th scope="col">Warning</th>
+                      <th scope="col">Critical</th>
+                      <th scope="col">Success</th>
+                            <th scope="col">Upward trend </th>
+                      <th scope="col">downward trend</th>
+                      <th scope="col">3LCL</th>
+                      <th scope="col">3UCL</th>
+                      <th scope="col">2LCL</th>
+                      <th scope="col">2UCL</th>
+                      <th scope="col">1LCL</th>
+                      <th scope="col">1UCL</th>
+                
+                      
+                    </tr>
+                    <tr>
+                      <th scope="row">CPU SYSTEM</th>
+                      <td>{{numerofwarningsytem}}</td>
+                      <td>{{numberofcriticalsystem}}</td>
+                      <td>{{numberofsuccsystem}}</td>
+                      <td>{{upwardtrendsytem}}</td>
+                      <td>{{Downwardtrendsystem}}</td>
+                      <td>{{three_sigma_LCL_flag_cpu_raw_system1}}</td>
+                       <td>{{three_sigma_UCL_flag_cpu_raw_system1}}</td>
+                      <td>{{two_sigma_LCL_flag_cpu_raw_system1}}</td>
+                      <td>{{two_sigma_UCL_flag_cpu_raw_system1}}</td>
+                      <td>{{one_sigma_LCL_flag_cpu_raw_system1}}</td>
+                      <td>{{one_sigma_UCL_flag_cpu_raw_system1}}</td>
+                    </tr>
+                    <tr>
+                        
+                      <th scope="row">CPU USER</th>
+                      <td>{{numerofwarninguser}}</td>
+                      <td>{{numberofcriticaluser}}</td>
+                      <td>{{numberofsuccuser}}</td>
+                      <td>{{upwardtrenduser}}</td>
+                      <td>{{Downwardtrenduser}}</td>
+                      <td>{{three_sigma_LCL_flag_cpu_raw_system2}}</td>
+                      <td>{{three_sigma_UCL_flag_cpu_raw_system2}}</td>
+                     <td>{{two_sigma_LCL_flag_cpu_raw_system2}}</td>
+                     <td>{{two_sigma_UCL_flag_cpu_raw_system2}}</td>
+                     <td>{{one_sigma_LCL_flag_cpu_raw_system2}}</td>
+                     <td>{{one_sigma_UCL_flag_cpu_raw_system2}}</td>
+                    
+                    </tr>
+                    <tr>
+                       
+                        
+                      <th scope="row">CPU NICE</th>
+                      <td>{{numerofwarningnice}}</td>
+                      <td>{{numberofcriticalnice}}</td>
+                      <td>{{numberofsuccnice}}</td>
+                      <td>{{upwardtrendnice}}</td>
+                      <td>{{Downwardtrendnice}}</td>
+                      <td>{{three_sigma_LCL_flag_cpu_raw_system3}}</td>
+                      <td>{{three_sigma_UCL_flag_cpu_raw_system3}}</td>
+                     <td>{{two_sigma_LCL_flag_cpu_raw_system3}}</td>
+                     <td>{{two_sigma_UCL_flag_cpu_raw_system3}}</td>
+                     <td>{{one_sigma_LCL_flag_cpu_raw_system3}}</td>
+                     <td>{{one_sigma_UCL_flag_cpu_raw_system3}}</td>
+                    </tr>
+                  
+                  </table>
+            </div>
+          </section>    
+ 
 </div>
