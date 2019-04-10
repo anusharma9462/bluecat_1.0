@@ -7,4 +7,6 @@ import { Customer } from './my-bar-chart/Customer';
 })
 export class AppComponent {
   title = 'ngchart';
+
+  
 }

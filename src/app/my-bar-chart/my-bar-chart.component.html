@@ -11,7 +11,24 @@
             </div>
 
 
+
+
+            <!-- new -->
+<div class="form-group row mb-2">
+  <label class="col-md-3 col-form-label"  for="fileupload"></label>
+
+<input type="file" name="Uplaod1" ng2FileSelect [uploader]="uploader" [(ngModel)]="customer.Uplaod1" />
+
+            <button type="button" class="btn btn-success btn-s" 
+              (click)="uploader.uploadAll()" >
+            
+                  Upload
+            </button>
+            </div>
  <!-- for strat date -->
+
+ 
+
 <div class="form-group row mb-2">
                 <label class="col-md-2 col-form-label"
                        for="StartDate">Start Date</label>
@@ -23,8 +40,9 @@
                                  required
                                  maxlength="50"
                                  [(ngModel)]="customer.StartDate"
-                                 name="StartDate"
+                                name="StartDate"
                                  #lastNameVar="ngModel" />
+                                 
                                  </div>
                                  
                        </div>
@@ -51,7 +69,7 @@
 
 
 
-                <label class="col-md-4 col-form-label pt-0">KPI TYPE</label>
+                <label class="col-md-4 col-form-label pt-0">KPI</label>
                 <div class="col-md-12">
                     <div class="form-check form-check-inline">
                         <label class="form-check-label">
@@ -110,7 +128,7 @@
                                             type="radio"
                                             value="home6"
                                             [(ngModel)]="customer.addressType"
-                                            name="addressType"> Network/Interuser
+                                            name="addressType">I/O
                                     </label>
                                   </div>
                                   
@@ -128,7 +146,7 @@
                           <input class="form-control"
                                  id="lastNameId"
                                  type="number"
-                                 placeholder="warning"
+                                 placeholder="Warning"
                                  required
                                  maxlength="50"
                                  [(ngModel)]="customer.lastName"
@@ -142,12 +160,12 @@
                        <!-- for Critical     -->
                        <div class="form-group row mb-2">
                           <label class="col-md-2 col-form-label"
-                                 for="critical">critical</label>
+                                 for="critical">Critical</label>
                                  <div class="col-md-8">
                                     <input class="form-control"
                                            id="critical"
                                            type="number"
-                                           placeholder="critical"
+                                           placeholder="Critical"
                                            required
                                            maxlength="50"
                                            [(ngModel)]="customer.critical"
@@ -161,12 +179,12 @@
                        <!-- for successvie difference -->
                        <div class="form-group row mb-2">
                           <label class="col-md-2 col-form-label"
-                                 for="successvie">successvie</label>
+                                 for="successvie">Successive Diff</label>
                                  <div class="col-md-8">
                                     <input class="form-control"
                                            id="successvie"
                                            type="number"
-                                           placeholder="successvie"
+                                           placeholder="Successive Diff"
                                            required
                                            maxlength="50"
                                            [(ngModel)]="customer.successvie"
@@ -180,12 +198,12 @@
                        <!-- for CL-window -->
                        <div class="form-group row mb-2">
                           <label class="col-md-2 col-form-label"
-                                 for="CL-window">CL-window</label>
+                                 for="CL-window">Trend-Window</label>
                                  <div class="col-md-8">
                                     <input class="form-control"
                                            id="CL-window"
                                            type="number"
-                                           placeholder="CL-window"
+                                           placeholder="Trend-Window"
                                            required
                                            maxlength="50"
                                            [(ngModel)]="customer.CL-window"
@@ -199,12 +217,12 @@
                        <!-- for CL1-window -->
                        <div class="form-group row mb-2">
                           <label class="col-md-2 col-form-label"
-                                 for="CL1-window">CL1-window</label>
+                                 for="CL1-window">CL-Window</label>
                                  <div class="col-md-8">
                                     <input class="form-control"
                                            id="CL1-window"
                                            type="number"
-                                           placeholder="CL1-window"
+                                           placeholder="CL-Window"
                                            required
                                            
                                            [(ngModel)]="customer.CL1-window"
@@ -215,6 +233,8 @@
                                            
                                            
                                  </div> 
+
+                                 
                        
 <!-- SUBMIT -->
 <div class="form-group row mb-2">
@@ -225,8 +245,15 @@
       >
         Submit
       </button>
+      
     </div>
+
+     
+    
+
   </div>
+
+  
 
                        
 </form>                   
@@ -237,47 +264,58 @@
                 <canvas baseChart
                 
                 width="2px"
+                 
+                [colors]="[undefined]"
                    [datasets]="barChartData" 
                       [labels]="ID"
                       [options]="barChartOptions"
                       [legend]="barChartLegend"
-                      [chartType]="barChartType"></canvas>
+                      [chartType]="barChartType">
+
+                    </canvas>
             </div>
+
+
+           
             <div class="col-12">
                 <table id="t01">
-                    <caption>Delivery slots:</caption>
+                         
+
                     <tr>
-                      <td></td>
+                      <td> </td>
                       <th scope="col">Warning</th>
                       <th scope="col">Critical</th>
-                      <th scope="col">Success</th>
-                            <th scope="col">Upward trend </th>
-                      <th scope="col">downward trend</th>
+                      <th scope="col">Successive Diff</th>
+                      <th scope="col">Upward Trend </th>
+                      <th scope="col">Downward Trend</th>
                       <th scope="col">3LCL</th>
                       <th scope="col">3UCL</th>
                       <th scope="col">2LCL</th>
                       <th scope="col">2UCL</th>
                       <th scope="col">1LCL</th>
-                      <th scope="col">1UCL</th>
-                
+                      <th scope="col"> 1UCL </th>
+                   
                       
                     </tr>
-                    <tr>
-                      <th scope="row">CPU SYSTEM</th>
-                      <td>{{numerofwarningsytem}}</td>
-                      <td>{{numberofcriticalsystem}}</td>
-                      <td>{{numberofsuccsystem}}</td>
-                      <td>{{upwardtrendsytem}}</td>
-                      <td>{{Downwardtrendsystem}}</td>
-                      <td>{{three_sigma_LCL_flag_cpu_raw_system1}}</td>
-                       <td>{{three_sigma_UCL_flag_cpu_raw_system1}}</td>
-                      <td>{{two_sigma_LCL_flag_cpu_raw_system1}}</td>
-                      <td>{{two_sigma_UCL_flag_cpu_raw_system1}}</td>
-                      <td>{{one_sigma_LCL_flag_cpu_raw_system1}}</td>
-                      <td>{{one_sigma_UCL_flag_cpu_raw_system1}}</td>
+                 
+                
+
+                    <tr *ngFor="let item of items ">
+                      <th scope="row">{{item.type}}</th>
+                      <td>{{item.warning}}</td>
+                      <td>{{item.critical}}</td>
+                      <td>{{item.success}}</td>
+                      <td>{{item.upward}}</td>
+                      <td>{{item.downward}}</td>
+                      <td>{{item.ThreeLCL}}</td>
+                       <td>{{item.ThreeUCL}}</td>
+                      <td>{{item.twoLCL}}</td>
+                      <td>{{item.twoUCL}}</td>
+                      <td>{{item.oneLCL}}</td>
+                      <td>{{item.oneUCL}}</td>
                     </tr>
                     <tr>
-                        
+<!--                         
                       <th scope="row">CPU USER</th>
                       <td>{{numerofwarninguser}}</td>
                       <td>{{numberofcriticaluser}}</td>
@@ -307,7 +345,7 @@
                      <td>{{two_sigma_UCL_flag_cpu_raw_system3}}</td>
                      <td>{{one_sigma_LCL_flag_cpu_raw_system3}}</td>
                      <td>{{one_sigma_UCL_flag_cpu_raw_system3}}</td>
-                    </tr>
+                    </tr> -->
                   
                   </table>
             </div>

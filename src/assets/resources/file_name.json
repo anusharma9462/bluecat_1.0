@@ -1,15 +1,14 @@
 {
     "res": [
-      
-     
-      {
+                 {
         "Time_Stamp": "2018-01-21",
         "week": 3,
-        "cpu_raw_system": 5.22,
-        "cpu_raw_user": 3.02,
+        "raw_system": 5.22,
+        "raw_user": 3.02,
         "cpu_raw_nice": 0,
+        "type":"cpu",
         "ID": 53,
-        "warning_flag_cpu_raw_system": true,
+        "warning-raw_system": true,
         "critical_flag_cpu_raw_system": false,
         "successive_diff_flag_cpu_raw_system": true,
         "correlation_cpu_raw_system": 0.51,
@@ -24,8 +23,6 @@
         "successive_diff_flag_cpu_raw_nice": false,
         "correlation_cpu_raw_nice": null,
         "coeff_cpu_raw_nice": 0,
-
-
         "correlation_flag_cpu_raw_system": "POS",
         "coeff_flag_cpu_raw_system": true,
         "correlation_flag_cpu_raw_user": "NA",
@@ -68,6 +65,7 @@
         "three_sigma_LCL_flag_cpu_raw_nice": false,
         "one_sigma_UCL_flag_cpu_raw_nice": false,
         "one_sigma_LCL_flag_cpu_raw_nice": false
+        
       },
       {
         "Time_Stamp": "2018-01-22",
